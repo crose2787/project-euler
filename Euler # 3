@@ -1,0 +1,43 @@
+import java.util.*;
+import java.math.*;
+
+public class ProjectEuler {
+
+    public static void main(String[] args) {
+
+/*  DO NOT UNCOMMENT, TAKES 382mins TO RUN
+
+        long bigNum = 600851475143L; //600851475143
+        
+        ArrayList<Long> list = new ArrayList<>();
+  
+        for(long j = 2; j < bigNum; j++){
+            long result = bigNum % j;
+            if(result == 0){
+                list.add(j);
+            }
+        }
+
+        System.out.println(list.size());
+        System.out.println(list.toString());
+        
+        71, 839, 1471, 6857, 59569, 104441, 486847, 1234169, 5753023,
+        10086647, 87625999, 408464633, 716151937, (8462696833 not needed) */
+        
+        long[] array = new long[]{71, 839, 1471, 6857, 59569, 104441, 486847,
+        1234169, 5753023, 10086647, 87625999, 408464633, 716151937};
+        int arrayLength = array.length;
+        long prev = 1;
+        
+        for(int i = 0; i < arrayLength; i++){
+            long result = array[i] * prev;
+            prev = result;
+            if(result == 600851475143L){
+                System.out.println(result + " at " + array[i]);  
+                break;
+            }
+        }
+     }
+ }
+
+//600851475143 at 6857 (Which means all numbers to 6857 need to be multiplied to total 600851475143)
