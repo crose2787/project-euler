@@ -1,0 +1,41 @@
+ import java.util.*;
+
+
+ public class MyClass {
+
+	public static void main(String args[]) {
+		ArrayList<Integer> primes = new ArrayList<>();
+		ArrayList<Integer> check = new ArrayList<>();
+		ArrayList<Integer> list = new ArrayList<>();
+		int a = 2;
+		
+		primes.add(2);
+		primes.add(3);
+		primes.add(5);
+		primes.add(7);
+		primes.add(11);
+		primes.add(13);
+		
+		do {
+		    check.clear();
+			for (int i = 0; i < primes.size(); i++) {
+			    int result = a % primes.get(i);
+			    if (result == 0) {
+				  check.add(0);
+				} else {
+				    check.add(1);
+				}
+			}
+				    
+			if (Collections.min(check) != 0) {
+				list.add(a);
+				primes.add(a);
+			}
+			
+			a++;
+			} while (list.size() < 9995); // -6 for missing primes
+		
+		System.out.println(Collections.max(list)); //104743
+		
+	}
+}
