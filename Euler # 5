@@ -1,0 +1,39 @@
+ //4 min 6 sec run time
+ 
+ import java.util.*;
+
+ public class MyClass {
+
+	public static void main(String args[]) {
+		ArrayList<Integer> list = new ArrayList<>();
+		ArrayList<Integer> check = new ArrayList<>();
+		int a = 1;
+		boolean answer = false;
+		
+		for (int i = 1; i <= 20; i++) {
+		    list.add(i);
+		}
+		
+		do {
+		    check.clear();
+		    for (int j = 0; j < list.size(); j++) {
+		        int result = a % list.get(j);
+		        if (result == 0) {
+		            check.add(0);
+		        } else {
+		            check.add(1);
+		        }
+		    }
+		    
+		    if (Collections.max(check) == 1) {
+		        answer = true;
+		    } else {
+		        answer = false;
+		        System.out.println(a);
+		    }
+		    a++;
+		} while (answer);
+		
+		//Should return 232792560
+	}
+}
