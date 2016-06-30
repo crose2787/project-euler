@@ -1,0 +1,35 @@
+import java.util.*
+
+public class MyClass{
+
+public static void main(String args[]){
+
+int[] fibArray = new int[40];
+int[] fibEvens = new int[40];
+fibArray[0] = 0;
+fibArray[1] = 1;
+int sum = 0;
+
+for(int i = 1; i <= 33; i++){
+    fibArray[i+1] = fibArray[i-1] + fibArray[i];
+    System.out.println(fibArray[i]);
+}
+
+for(int i = 0; i < fibArray.length; i++){
+    if(fibArray[i] % 2 == 0){
+        fibEvens[i] = fibArray[i];
+    }
+    System.out.println(fibEvens[i]);
+}
+
+for(int i : fibEvens){
+    sum += i;
+}
+
+System.out.println("The sum is " + sum);
+
+	}
+}
+
+
+//The sum is 4613732
