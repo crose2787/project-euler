@@ -1,0 +1,40 @@
+ import java.io.StringBufferInputStream;
+ import java.util.*;
+
+
+ public class MyClass {
+	
+	public static boolean isPalindrome(int num){
+	
+	    String numF = "" + num;
+	    String numR = new StringBuffer(numF).reverse().toString();
+	    if(numR.equals(numF)){
+	        return true;
+	    } else {
+	        return false;
+	    }
+	}
+	
+	public static void main(String args[]) {
+		ArrayList<Integer> factors = new ArrayList<>();
+		ArrayList<Integer> products = new ArrayList<>();
+		
+		//index is 0-899
+		for (int i = 100; i <= 999; i++) {
+		    factors.add(i);
+		}
+		
+		for (int i = 0; i < factors.size(); i++) {
+		    for(int j = 0; j < factors.size(); j++){
+		        int a = factors.get(i);
+		        int b = factors.get(j);
+		        int prod = a*b;
+		        if(isPalindrome(prod)){
+		            products.add(prod);
+		        }
+		    }
+		}
+		
+		System.out.println(Collections.max(products));
+	}
+}
