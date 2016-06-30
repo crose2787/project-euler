@@ -1,0 +1,42 @@
+ import java.util.*;
+
+
+ public class MyClass {
+	
+	public static int sum(ArrayList<Integer> array) {
+	    int result = 0;
+	    
+	    for (int k = 0; k < array.size(); k++){
+	        result += array.get(k);
+	    }
+	    return result;
+	}
+	
+	public static void main(String args[]) {
+		ArrayList<Integer> list = new ArrayList<>();
+		ArrayList<Integer> sumOfSq = new ArrayList<>();
+		ArrayList<Integer> sqOfSums = new ArrayList<>();
+		
+		
+		for (int i = 1; i <= 100; i++) {
+		    list.add(i);
+		}
+		
+		for (int j = 0; j <= list.size(); j++) {
+		    int sq = j*j;
+		    sumOfSq.add(sq);
+		}
+		
+		int x = sum(list);
+		x = x*x;
+		
+		int y = sum(sumOfSq);
+		
+		int z = x - y;
+		
+		System.out.println(z);
+
+	}
+}
+
+//25164150
