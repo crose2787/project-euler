@@ -1,2 +1,2 @@
 # project-euler
-Java-based solutions for Project Euler
+Java-based solutions for ProjectEuler.net
