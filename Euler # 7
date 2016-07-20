@@ -35,7 +35,7 @@
 			a++;
 			} while (list.size() < 9995); // -6 for missing primes
 		
-		System.out.println(Collections.max(list)); //104743
+		System.out.println(Collections.max(list)); //Answer is 104743
 		
 	}
 }
