@@ -31,5 +31,4 @@ System.out.println("The sum is " + sum);
 	}
 }
 
-
-//The sum is 4613732
+//The answer is 4613732
