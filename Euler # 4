@@ -19,7 +19,7 @@
 		ArrayList<Integer> factors = new ArrayList<>();
 		ArrayList<Integer> products = new ArrayList<>();
 		
-		//index is 0-899
+		//The index is 0-899
 		for (int i = 100; i <= 999; i++) {
 		    factors.add(i);
 		}
