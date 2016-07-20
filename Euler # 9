@@ -1,0 +1,58 @@
+ import java.math.*;
+ import java.util.*;
+
+
+ public class MyClass {
+	
+	public static ArrayList generation(ArrayList array)
+	{
+	    for (int i = 1; i <= 1000; i++)
+	    {
+	        array.add(i);
+	    }
+	    
+	    return array;
+	}
+	
+	public static void main(String args[]) {
+		ArrayList<Integer> array = new ArrayList<>();
+		ArrayList<Double> possibles = new ArrayList<>();
+		int a, b;
+		
+		ArrayList<Integer> arrayAs = generation(array);
+		ArrayList<Integer> arrayBs = generation(array);
+		
+		outerloop:
+		for (int i = 0; i < arrayAs.size(); i++)
+		{
+		    a = arrayAs.get(i);
+		    
+		    for (int j =0; j < arrayBs.size(); j++)
+		    {
+		        b = arrayBs.get(j);
+		        
+		        int num = (a * a) + (b * b);
+		        double c = Math.sqrt(num);
+		        double check = c % 1;
+		        
+		        if (check == 0.0 && c < 998.0)
+		        {
+		           double found = (double) a + b + c;
+		           
+		           if (found == 1000.0)
+		           {
+		               System.out.println("a = " + a + " b = " + b + " c = " + c);
+		               double answer = a * b * c;
+		               System.out.println(answer);
+		               
+		               break outerloop;
+		           }
+		        }
+		    }
+		}
+	}
+}
+
+
+//a = 200 b = 375 c = 425.0
+//3.1875E7
