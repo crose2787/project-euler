@@ -1,0 +1,61 @@
+#!/usr/bin/perl
+
+# Project Euler # 10
+# The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17
+# Find the sum of all the primes below two million.
+
+use strict;
+use warnings;
+use diagnostics;
+
+# Declare subs
+sub basicCheck($);
+
+my $ceiling = 2000000;
+my @primes = ( 2, 3, 5, 7 );
+
+my $sum = 17;
+my $i = 8;
+do {
+	my $state = 0;
+	my $check = basicCheck( $i );
+
+	if ( $check ) {
+		foreach my $p ( @primes ) {
+			my $remainder = $i % $p;
+			if ( ! $remainder == 0 ) {
+				$state = 1;
+			} else {
+				$state = 0;
+				last;
+			}
+		}
+
+		if ( $state ) {
+			push( @primes, $i );
+			$sum += $i;
+		}
+	}
+
+	$i++;
+} while ( $i <= $ceiling );
+
+print "# Sum: " . $sum . "\n";
+
+sub basicCheck ($) {
+	my $num = shift ( @_ );
+
+	my $mod = $num % 2; # Even numbers
+	my $sqrt = sqrt ( $num ); # Numbers that are squared
+	my $regex = $sqrt =~ /\./;
+	my $fives = substr( $num, -1 ); # Numbers divisible by 5
+
+	my $check;
+	if ( $mod == 0 || ! $regex || $fives == 5 ) {
+		$check = 0;
+	} else {
+		$check = 1;
+	}
+
+	return $check;
+}
