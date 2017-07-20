@@ -1,0 +1,28 @@
+#! /usr/bin/perl
+#
+# Problem 13
+# Find first ten digits of sum of 100 50-digit numbers
+#
+# 5537376230
+
+use strict;
+use bignum;
+
+# Open .txt of numbers and create array
+my $path = "/var/www/html/test/hundredfifty.txt";
+open( my $fh, "<", $path );
+chomp( my @lines = <$fh> );
+close( $fh );
+
+my @nums;
+foreach my $num ( @lines ) {
+	$num =~ s/^\s+|\s+$//g;
+	push( @nums, $num );
+}
+
+my $sum = 0;
+foreach my $row ( @nums ) {
+	$sum += $row;
+}
+
+print "\n# Total = $sum\n";
