@@ -1,0 +1,43 @@
+#! /usr/bin/perl
+#
+# Problem 14
+#
+# Which starting number, under one million, produces longest Collatz sequence?
+#
+# 49s runtime, 837,799 in 524 steps
+
+use strict;
+
+print "\n# Time Started: " . localtime();
+my $ceiling = 1000000;
+my $longest = 0;
+my $num = 0;
+for ( my $i = $ceiling; $i >= 1; $i-- ) {
+	my $result = collatzSteps( $i );
+
+	if ( $result > $longest ) {
+		$longest = $result;
+		$num = $i;
+	}
+}
+
+print "\n# Longest: $longest";
+print "\n# Num: $num";
+print "\n# Time Ended: " . localtime() . "\n\n";
+
+sub collatzSteps ( $ ) {
+	my $input = shift( @_ );
+
+	my $steps = 0;
+	do {
+		++$steps;
+
+		if ( $input % 2 == 0 ) {
+			$input = $input / 2;
+		} else { 
+			$input = ( $input * 3 ) + 1;
+		}
+	} while ( $input > 1 );
+
+	return $steps;
+}
